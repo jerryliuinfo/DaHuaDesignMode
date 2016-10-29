@@ -11,4 +11,5 @@ public class SimpleFactory {
     public static void main(String[] args) {
 
     }
+
 }

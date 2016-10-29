@@ -2,7 +2,7 @@ package com.hawk.design.mode.setting;
 
 import android.text.TextUtils;
 
-import com.tcl.widget.demo.uti.StringUtils;
+import com.hawk.design.mode.util.StringUtils;
 
 import java.util.HashMap;
 

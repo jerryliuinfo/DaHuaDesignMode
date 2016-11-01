@@ -4,7 +4,7 @@ package com.hawk.design.mode.decoate;
  * Created by lenovo on 2016/10/31.
  */
 
-public class Person implements Decorate{
+public class Person implements IDecorate {
     public String name;
     public Person(){
 

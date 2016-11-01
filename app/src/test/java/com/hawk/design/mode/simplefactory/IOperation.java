@@ -1,4 +1,4 @@
-package com.hawk.design.mode.factory;
+package com.hawk.design.mode.simplefactory;
 
 /**
  * @author Jerry
@@ -7,7 +7,7 @@ package com.hawk.design.mode.factory;
  * @copyright TCL-MIG
  */
 
-public interface Operation {
+public interface IOperation {
     /**
      *
      * @param num1

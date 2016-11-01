@@ -1,4 +1,4 @@
-package com.hawk.design.mode.factory;
+package com.hawk.design.mode.simplefactory;
 
 /**
  * @author Jerry
@@ -12,7 +12,7 @@ public class OperationFactory {
     public static final int TYPE_SUB = 2;
     public static final int TYPE_MULTI = 3;
     public static final int TYPE_DIV = 4;
-    public static Operation createOperation(int type){
+    public static IOperation createOperation(int type){
         if (type == TYPE_ADD){
             return new OperationAdd();
         }else if (type == TYPE_SUB){

@@ -7,7 +7,7 @@ package com.hawk.design.mode.proxy;
  * @copyright TCL-MIG
  */
 
-public interface GiveGift {
+public interface IGiveGift {
     void giveDolls();
     void giveFlowers();
     void giveChocolate();

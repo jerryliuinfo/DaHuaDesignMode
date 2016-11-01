@@ -1,7 +1,7 @@
 package com.hawk.design.mode;
 
-import com.hawk.design.mode.factory.Operation;
-import com.hawk.design.mode.factory.OperationFactory;
+import com.hawk.design.mode.simplefactory.IOperation;
+import com.hawk.design.mode.simplefactory.OperationFactory;
 
 import org.junit.Test;
 
@@ -12,12 +12,12 @@ import org.junit.Test;
  * @copyright TCL-MIG
  */
 
-public class FactoryModeTest {
-    private static final String TAG = FactoryModeTest.class.getSimpleName();
+public class SimpleFactoryModeTest {
+    private static final String TAG = SimpleFactoryModeTest.class.getSimpleName();
 
     @Test
     public void testFactoryMode() throws Exception {
-        Operation operation = OperationFactory.createOperation(OperationFactory.TYPE_ADD);
+        IOperation operation = OperationFactory.createOperation(OperationFactory.TYPE_ADD);
         System.out.println("operation add = "+ operation.caculate(1,2));
 
         operation = OperationFactory.createOperation(OperationFactory.TYPE_SUB);

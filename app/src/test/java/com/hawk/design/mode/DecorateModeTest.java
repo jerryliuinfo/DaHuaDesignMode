@@ -7,8 +7,6 @@ import com.hawk.design.mode.decoate.Sneakes;
 import com.hawk.design.mode.decoate.Suit;
 import com.hawk.design.mode.decoate.TShirt;
 import com.hawk.design.mode.decoate.Tie;
-import com.hawk.design.mode.factory.Operation;
-import com.hawk.design.mode.factory.OperationFactory;
 
 import org.junit.Test;
 

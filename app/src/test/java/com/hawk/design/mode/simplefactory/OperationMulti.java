@@ -1,4 +1,4 @@
-package com.hawk.design.mode.factory;
+package com.hawk.design.mode.simplefactory;
 
 /**
  * @author Jerry
@@ -7,9 +7,9 @@ package com.hawk.design.mode.factory;
  * @copyright TCL-MIG
  */
 
-public class OperationSub implements Operation {
+public class OperationMulti implements IOperation {
     @Override
     public double caculate(double num1, double num2) {
-        return num1 - num2;
+        return num1 * num2;
     }
 }

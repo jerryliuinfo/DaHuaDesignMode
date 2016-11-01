@@ -7,7 +7,7 @@ package com.hawk.design.mode.proxy;
  * @copyright TCL-MIG
  */
 
-public class Proxy implements GiveGift {
+public class Proxy implements IGiveGift {
     public Pursuit pursuit;
 
     public Proxy(SchoolGirl girl) {

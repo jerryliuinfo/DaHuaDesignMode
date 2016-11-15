@@ -10,8 +10,9 @@ public class NotifyHelper {
      * 例如
      * 1.通知栏设置中的开关关闭的时候，不通知
      * 2.距离上一次通知间隔不足2小时，不弹
-     * 3.一天内超过2次不弹
-     * 4.不在9:00-22:00，不弹
+     * 3.是否处于全屏或者通话状态
+     * 4.一天内超过2次不弹
+     * 5.不在9:00-22:00，不弹
      * @return
      */
     public static boolean checkCommonCondition(){

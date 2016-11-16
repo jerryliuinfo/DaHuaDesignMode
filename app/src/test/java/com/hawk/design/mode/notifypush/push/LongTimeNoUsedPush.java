@@ -22,7 +22,6 @@ public class LongTimeNoUsedPush extends NotifyPusher {
         }
          //2.距离上一次通知是否满足了48小时间隔
         long currentTimeMilles = System.currentTimeMillis();
-         //System.currentTimeMilles - lastNotifyTime <= server interval
          if (currentTimeMilles - lastNotifyTime <= configManager.getNofifyFrequency()){
              return false;
          }

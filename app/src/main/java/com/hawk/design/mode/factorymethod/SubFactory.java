@@ -1,7 +1,6 @@
 package com.hawk.design.mode.factorymethod;
 
 import com.hawk.design.mode.simplefactory.IOperation;
-import com.hawk.design.mode.simplefactory.OperationAdd;
 import com.hawk.design.mode.simplefactory.OperationSub;
 
 /**

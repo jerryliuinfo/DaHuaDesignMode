@@ -1,9 +1,9 @@
 package com.hawk.design.mode.notifypush.push;
 
 import com.hawk.design.mode.notifypush.NotificationConstans;
+import com.hawk.design.mode.notifypush.NotifyPusher;
 import com.hawk.design.mode.notifypush.TimeUtil;
 import com.hawk.design.mode.notifypush.manager.LongTimeNoUsedConfigManager;
-import com.hawk.design.mode.notifypush.NotifyPusher;
 import com.hawk.design.mode.notifypush.manager.NotifyCommonConfigManager;
 
 /**

@@ -50,7 +50,7 @@ public class LongTimeNoUsedConfigManager extends BaseSharedPrefConfigManager imp
     @Override
     public SharedPreferences getSharedPreference() {
         if (sharedPreference == null){
-            sharedPreference = MyApplication.getInstance().getSharedPreferences(NOTIFY_PARAM_CONFIG_SP_NAME, Context.MODE_PRIVATE);
+            sharedPreference = MyApplication.getContext().getSharedPreferences(NOTIFY_PARAM_CONFIG_SP_NAME, Context.MODE_PRIVATE);
         }
         return sharedPreference;
     }

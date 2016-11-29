@@ -1,7 +1,5 @@
 package com.hawk.design.mode.templatemethod;
 
-import com.hawk.design.mode.util.NLog;
-
 /**
  * Created by lenovo on 2016/11/6.
  */

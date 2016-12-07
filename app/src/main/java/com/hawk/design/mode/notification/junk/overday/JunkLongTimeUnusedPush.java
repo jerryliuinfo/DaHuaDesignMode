@@ -26,7 +26,6 @@ public class JunkLongTimeUnusedPush extends ABaseNotifyPush {
         IndividualSwitchCondition switchCondition = new IndividualSwitchCondition(commonCondition,IndividualSwitchCondition.TYPE_JUNK);
         final TodayHaveShowedCon todayHaveShowedCon = new TodayHaveShowedCon(switchCondition, "last_notify_unuse_longtime");
         NotififyFrequencyCon notififyFrequencyCon = new NotififyFrequencyCon(todayHaveShowedCon,NotififyFrequencyCon.TYPE_JUNK_OVER_DAY);
-
         JunkLongTimeUnusedPush push = new JunkLongTimeUnusedPush(parentPush, notififyFrequencyCon) {
 
             @Override

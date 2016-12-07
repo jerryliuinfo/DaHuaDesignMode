@@ -32,7 +32,7 @@ public abstract class APermissionsAction extends IAction implements IPermissions
     }
 
     @Override
-    protected boolean interrupt() {
+    public boolean interrupt() {
         boolean interrupt = super.interrupt();
 
         if (requestCode == 0) {

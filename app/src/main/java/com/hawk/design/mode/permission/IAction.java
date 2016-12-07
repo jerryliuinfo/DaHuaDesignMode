@@ -7,6 +7,7 @@ import android.app.Activity;
  */
 
 public abstract class IAction {
+    public static final String TAG = "IAction";
     private Activity context;
 
     private IAction parent;
@@ -20,7 +21,7 @@ public abstract class IAction {
             parent.setChild(this);
     }
 
-    protected boolean interrupt() {
+    public boolean interrupt() {
         return false;
     }
 

@@ -34,7 +34,7 @@ public abstract class APermissionGroupAction extends IAction implements IPermiss
     }
 
     @Override
-    protected boolean interrupt() {
+    public boolean interrupt() {
         boolean interrupt = super.interrupt();
 
         if (requestCode == 0) {

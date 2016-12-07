@@ -19,7 +19,7 @@ public class Between9To22HourCondition extends AConditionAction {
     @Override
     public boolean checkCondition() {
         Logger.d(TAG, "Between9To22HourCondition checkCondition");
-        boolean result = true;
+        boolean result = false;
         if (result){
             Logger.e(TAG, "Between9To22HourCondition interrupted");
         }

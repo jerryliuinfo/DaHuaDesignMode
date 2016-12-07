@@ -24,6 +24,7 @@ public  class IndividualSwitchCondition extends AConditionAction {
 
     @Override
     public boolean checkCondition() {
+        Logger.d(TAG, "IndividualSwitchCondition checkCondition");
         return notifySwitch(type);
     }
     public boolean notifySwitch(String type){

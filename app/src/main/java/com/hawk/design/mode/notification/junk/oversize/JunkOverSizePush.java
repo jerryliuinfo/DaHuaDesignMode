@@ -1,11 +1,9 @@
 package com.hawk.design.mode.notification.junk.oversize;
 
-import android.app.Activity;
-
 import com.hawk.design.mode.notification.ABaseNotifyPush;
 import com.hawk.design.mode.notification.condition.IndividualSwitchCondition;
 import com.hawk.design.mode.notification.condition.NotififyFrequencyCon;
-import com.hawk.design.mode.notification.condition.TodayHaveShowedCon;
+import com.hawk.design.mode.notification.condition.TodayHaveShowedThisCon;
 import com.hawk.design.mode.notifypush.push.Con01;
 import com.hawk.design.mode.notifypush.push.Con02;
 import com.hawk.design.mode.notifypush.push.Con03;
@@ -25,7 +23,7 @@ public class JunkOverSizePush extends ABaseNotifyPush {
         IAction commonCondition = getCommonCondition();
         // 组装自己条件
         IndividualSwitchCondition switchCondition = new IndividualSwitchCondition(commonCondition,IndividualSwitchCondition.TYPE_JUNK);
-        final TodayHaveShowedCon todayHaveShowedCon = new TodayHaveShowedCon(switchCondition, "last_notify_storage_oversize_time");
+        final TodayHaveShowedThisCon todayHaveShowedCon = new TodayHaveShowedThisCon(switchCondition, "last_notify_storage_oversize_time");
         NotififyFrequencyCon notififyFrequencyCon = new NotififyFrequencyCon(todayHaveShowedCon,NotififyFrequencyCon.TYPE_JUNK_OVER_DAY);
 
         JunkOverSizePush push = new JunkOverSizePush(parentPush, notififyFrequencyCon) {

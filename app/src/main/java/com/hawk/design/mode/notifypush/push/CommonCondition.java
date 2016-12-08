@@ -21,7 +21,7 @@ public class CommonCondition extends IAction {
     public boolean interrupt() {
         boolean interrupt = false;
         if (interrupt){
-            Logger.e(TAG, "CommonCondition  interrupt");
+            NLog.e(TAG, "CommonCondition  interrupt");
         }
 
         return interrupt;

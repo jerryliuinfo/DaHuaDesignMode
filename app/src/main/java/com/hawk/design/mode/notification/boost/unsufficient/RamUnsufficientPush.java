@@ -7,7 +7,7 @@ import com.hawk.design.mode.notification.condition.IndividualSwitchCondition;
 import com.hawk.design.mode.notification.condition.NotififyFrequencyCon;
 import com.hawk.design.mode.notification.condition.TodayHaveShowedThisCon;
 import com.hawk.design.mode.permission.IAction;
-import com.hawk.design.mode.util.Logger;
+import com.hawk.design.mode.util.NLog;
 
 /**
  * @author Jerry
@@ -21,16 +21,16 @@ public class RamUnsufficientPush extends ABaseNotifyPush {
         // 获取公共条件
         IAction commonCondition = getCommonCondition();
         // 组装自己条件
-        IndividualSwitchCondition switchCondition = new IndividualSwitchCondition(commonCondition,IndividualSwitchCondition.TYPE_JUNK);
+        IndividualSwitchCondition switchCondition = new IndividualSwitchCondition(commonCondition,NotififyFrequencyCon.TYPE_BOOST_OVER_DAY);
         final TodayHaveShowedThisCon todayHaveShowedCon = new TodayHaveShowedThisCon(switchCondition, "last_ram_storage_insufficient_notify_time");
-        NotififyFrequencyCon notififyFrequencyCon = new NotififyFrequencyCon(todayHaveShowedCon,NotififyFrequencyCon.TYPE_JUNK_OVER_DAY);
+        NotififyFrequencyCon notififyFrequencyCon = new NotififyFrequencyCon(todayHaveShowedCon,NotififyFrequencyCon.TYPE_BOOST_OVER_DAY);
 
         RamUnsufficientPush push = new RamUnsufficientPush(null, parentPush, notififyFrequencyCon) {
 
             @Override
             public void onNotifySuccess() {
                 super.onNotifySuccess();
-                todayHaveShowedCon.setLastNotifyTime(System.currentTimeMillis());
+                todayHaveShowedCon.updateLastNotifyTime();
             }
         };
 
@@ -44,6 +44,6 @@ public class RamUnsufficientPush extends ABaseNotifyPush {
 
     @Override
     public void runNotify() {
-        Logger.d(TAG,"RamUnsufficientPush show Notify");
+        NLog.d(TAG,"RamUnsufficientPush show Notify");
     }
 }

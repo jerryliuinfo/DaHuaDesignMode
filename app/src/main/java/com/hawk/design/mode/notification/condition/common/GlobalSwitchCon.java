@@ -22,10 +22,10 @@ public class GlobalSwitchCon extends AConditionAction{
      */
     @Override
     public boolean checkCondition() {
-        Logger.d(TAG, "GlobalSwitchCon checkCondition");
+        NLog.d(TAG, "GlobalSwitchCon checkCondition");
         boolean result = false;
         if (result){
-            Logger.e(TAG, "GlobalSwitchCon interrupted");
+            NLog.e(TAG, "GlobalSwitchCon interrupted");
         }
         return result;
     }

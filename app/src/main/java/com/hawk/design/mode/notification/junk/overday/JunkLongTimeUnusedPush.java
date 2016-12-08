@@ -10,7 +10,7 @@ import com.hawk.design.mode.notifypush.push.Con02;
 import com.hawk.design.mode.notifypush.push.Con03;
 import com.hawk.design.mode.notifypush.push.Con04;
 import com.hawk.design.mode.permission.IAction;
-import com.hawk.design.mode.util.Logger;
+import com.hawk.design.mode.util.NLog;
 
 /**
  * @author Jerry
@@ -22,18 +22,18 @@ import com.hawk.design.mode.util.Logger;
 public class JunkLongTimeUnusedPush extends ABaseNotifyPush {
 
     public static JunkLongTimeUnusedPush newInstace(IAction parentPush) {
-        // 获取公共条件
+        // 组装公共条件
         IAction commonCondition = getCommonCondition();
-        // 组装自己条件
-        //单独开关
-        IndividualSwitchCondition switchCondition = new IndividualSwitchCondition(commonCondition,IndividualSwitchCondition.TYPE_JUNK);
-        //检查今天是否有弹此类通知
-        TodayHaveShowedThisTypeCon todayHaveShowedThisTypeCon = new TodayHaveShowedThisTypeCon(switchCondition,IndividualSwitchCondition.TYPE_JUNK);
-        //今天是否有弹过这个通知
+        /*****************************组装自己条件******************************/
+        //1.检查单独开关
+        IndividualSwitchCondition switchCondition = new IndividualSwitchCondition(commonCondition,NotififyFrequencyCon.TYPE_JUNK_OVER_DAY);
+        //2.检查今天是否有弹此类通知
+        TodayHaveShowedThisTypeCon todayHaveShowedThisTypeCon = new TodayHaveShowedThisTypeCon(switchCondition,NotififyFrequencyCon.TYPE_JUNK_OVER_DAY);
+        //3.检查今天是否有弹过这个通知
         final TodayHaveShowedThisCon todayHaveShowedCon = new TodayHaveShowedThisCon(todayHaveShowedThisTypeCon, "last_notify_unuse_longtime");
-        //通知频率间隔是否满足了要求
+        //4.检查通知频率间隔是否满足了要求
         NotififyFrequencyCon notififyFrequencyCon = new NotififyFrequencyCon(todayHaveShowedCon,NotififyFrequencyCon.TYPE_JUNK_OVER_DAY);
-        //检查阀值
+        //5.检查阀值
         ThresoldCon thresoldCon = new ThresoldCon(notififyFrequencyCon);
 
         JunkLongTimeUnusedPush push = new JunkLongTimeUnusedPush(parentPush, thresoldCon) {
@@ -41,7 +41,7 @@ public class JunkLongTimeUnusedPush extends ABaseNotifyPush {
             @Override
             public void onNotifySuccess() {
                 super.onNotifySuccess();
-                todayHaveShowedCon.setLastNotifyTime(System.currentTimeMillis());
+                todayHaveShowedCon.updateLastNotifyTime();
             }
 
         };
@@ -66,7 +66,8 @@ public class JunkLongTimeUnusedPush extends ABaseNotifyPush {
 
     @Override
     public void runNotify() {
-        Logger.d(TAG,"JunkLongTimeUnusedPush show Notify");
+        NLog.d(TAG,"JunkLongTimeUnusedPush show Notify");
+
         boolean showNotificationResult = true;
         if (showNotificationResult) {
             onNotifySuccess();

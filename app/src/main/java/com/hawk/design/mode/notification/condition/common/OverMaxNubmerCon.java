@@ -18,10 +18,10 @@ public class OverMaxNubmerCon extends AConditionAction{
 
     @Override
     public boolean checkCondition() {
-        Logger.d(TAG, "OverMaxNubmerCon checkCondition");
+        NLog.d(TAG, "OverMaxNubmerCon checkCondition");
         boolean result = false;
         if (result){
-            Logger.e(TAG, "OverMaxNubmerCon interrupted");
+            NLog.e(TAG, "OverMaxNubmerCon interrupted");
         }
         return result;
     }

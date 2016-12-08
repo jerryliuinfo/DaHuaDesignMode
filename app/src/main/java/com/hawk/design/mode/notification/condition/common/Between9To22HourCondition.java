@@ -2,7 +2,7 @@ package com.hawk.design.mode.notification.condition.common;
 
 import com.hawk.design.mode.notifypush.push.AConditionAction;
 import com.hawk.design.mode.permission.IAction;
-import com.hawk.design.mode.util.Logger;
+import com.hawk.design.mode.util.NLog;
 
 /**
  * @author Jerry
@@ -18,10 +18,10 @@ public class Between9To22HourCondition extends AConditionAction {
 
     @Override
     public boolean checkCondition() {
-        Logger.d(TAG, "Between9To22HourCondition checkCondition");
+        NLog.d(TAG, "Between9To22HourCondition checkCondition");
         boolean result = false;
         if (result){
-            Logger.e(TAG, "Between9To22HourCondition interrupted");
+            NLog.e(TAG, "Between9To22HourCondition interrupted");
         }
         return result;
     }

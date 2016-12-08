@@ -5,8 +5,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.hawk.design.mode.notification.junk.overday.JunkLongTimeUnusedPush;
+import com.hawk.design.mode.notification.junk.oversize.JunkOverSizePush;
 import com.hawk.design.mode.permission.IAction;
-import com.hawk.design.mode.util.Logger;
+import com.hawk.design.mode.util.NLog;
 
 /**
  * @author Jerry
@@ -33,10 +34,10 @@ public class SplashActivity extends AppCompatActivity {
                 Con04 con04 = new Con04(null, con03);// 随机中断*/
 
 //                RamUnsufficientPush ramUnsufficientPush =  RamUnsufficientPush.newInstace(null);
-//                JunkOverSizePush junkOverSizePush = JunkOverSizePush.newInstace(ramUnsufficientPush);
-                JunkLongTimeUnusedPush junkLongTimeNoUsedPush = JunkLongTimeUnusedPush.newInstace(null);
+                JunkOverSizePush junkOverSizePush = JunkOverSizePush.newInstace(null);
+                JunkLongTimeUnusedPush junkLongTimeNoUsedPush = JunkLongTimeUnusedPush.newInstace(junkOverSizePush);
                 junkLongTimeNoUsedPush.run();
-                Logger.d(IAction.TAG,"------------------------------------------------------>");
+                NLog.d(IAction.TAG,"------------------------------------------------------>");
             }
         }
     }

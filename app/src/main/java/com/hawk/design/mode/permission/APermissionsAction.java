@@ -44,13 +44,13 @@ public abstract class APermissionsAction extends IAction implements IPermissions
         }
         // 授予了权限
         else if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(getContext(), permission)) {
-            Logger.d(TAG, "已经授予了权限, permission = %s", permission);
+            NLog.d(TAG, "已经授予了权限, permission = %s", permission);
         }
         // 没有或者拒绝了权限
         else if (PackageManager.PERMISSION_DENIED == ContextCompat.checkSelfPermission(getContext(), permission)) {
             interrupt = true;
 
-            Logger.d(TAG, "%s permission = %s", "PERMISSION_DENIED", permission);
+            NLog.d(TAG, "%s permission = %s", "PERMISSION_DENIED", permission);
 
             doInterrupt();
         }
@@ -62,12 +62,12 @@ public abstract class APermissionsAction extends IAction implements IPermissions
     public void doInterrupt() {
         // 对没有权限做出处理，默认申请权限
         if (!handlePermissionNone()) {
-            Logger.d(TAG, "handlePermissionNone(false)");
+            NLog.d(TAG, "handlePermissionNone(false)");
 
             requestPermission();
         }
         else {
-            Logger.d(TAG, "handlePermissionNone(true)");
+            NLog.d(TAG, "handlePermissionNone(true)");
         }
     }
 
@@ -100,7 +100,7 @@ public abstract class APermissionsAction extends IAction implements IPermissions
             subject.attach(this);
         }
 
-        Logger.d(TAG, "requestPermission(%s)", permission);
+        NLog.d(TAG, "requestPermission(%s)", permission);
 
         // XT1562(Motorola) 这里会上报一个这样的错误，暂时搞不懂为什么
         // java.lang.IllegalArgumentException:Wake lock not active: android.os.Binder@3e69cbf from uid 1000
@@ -120,11 +120,11 @@ public abstract class APermissionsAction extends IAction implements IPermissions
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        Logger.d(TAG, "onRequestPermissionsResult , requestCode = " + requestCode);
+        NLog.d(TAG, "onRequestPermissionsResult , requestCode = " + requestCode);
 
         if (grantResults != null && grantResults.length > 0) {
             for (int i = 0; i < permissions.length; i++) {
-                Logger.d(TAG, "requestCode = %d, permission = %s, grantResult = %d", requestCode, permissions[i], grantResults[i]);
+                NLog.d(TAG, "requestCode = %d, permission = %s, grantResult = %d", requestCode, permissions[i], grantResults[i]);
             }
         }
 
@@ -142,11 +142,11 @@ public abstract class APermissionsAction extends IAction implements IPermissions
             }
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(getContext(), permission)) {
-                Logger.d(TAG, "onPermissionDenied(false)");
+                NLog.d(TAG, "onPermissionDenied(false)");
 
                 onPermissionDenied(false);
             } else {
-                Logger.d(TAG, "onPermissionDenied(true)");
+                NLog.d(TAG, "onPermissionDenied(true)");
 
                 onPermissionDenied(true);
             }

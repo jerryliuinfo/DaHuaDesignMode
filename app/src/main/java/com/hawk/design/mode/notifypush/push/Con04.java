@@ -24,9 +24,9 @@ public class Con04 extends AConditionAction {
     public boolean checkCondition() {
         boolean interrupt = new Random().nextInt(10) >= 5;
         if (interrupt) {
-            Logger.e(TAG,"Con04 interupt------");
+            NLog.e(TAG,"Con04 interupt------");
         }else {
-            Logger.d(TAG,"Con04 not interupt" );
+            NLog.d(TAG,"Con04 not interupt" );
         }
 
         return interrupt;

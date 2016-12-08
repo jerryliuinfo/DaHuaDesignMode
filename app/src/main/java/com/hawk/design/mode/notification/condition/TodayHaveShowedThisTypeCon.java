@@ -2,13 +2,10 @@ package com.hawk.design.mode.notification.condition;
 
 import com.hawk.design.mode.notifypush.push.AConditionAction;
 import com.hawk.design.mode.permission.IAction;
-import com.hawk.design.mode.util.Logger;
+import com.hawk.design.mode.util.NLog;
 
 import java.util.Random;
 
-import static com.hawk.design.mode.notification.condition.IndividualSwitchCondition.TYPE_APPMGT;
-import static com.hawk.design.mode.notification.condition.IndividualSwitchCondition.TYPE_BOOST;
-import static com.hawk.design.mode.notification.condition.IndividualSwitchCondition.TYPE_JUNK;
 
 /**
  * @author Jerry
@@ -28,7 +25,7 @@ public class TodayHaveShowedThisTypeCon extends AConditionAction {
 
     @Override
     public boolean checkCondition() {
-        Logger.d(TAG, "TodayHaveShowedThisTypeCon checkCondition");
+        NLog.d(TAG, "TodayHaveShowedThisTypeCon checkCondition");
         return isThisKindOfTypeShowed();
     }
 
@@ -48,50 +45,63 @@ public class TodayHaveShowedThisTypeCon extends AConditionAction {
     private boolean isThisKindOfNotifyTypeShowed(){
         int maxCount = 1;
         boolean interrupt = false;
-        //垃圾清理
-        if (TYPE_JUNK.equals(type)){
+        if (NotififyFrequencyCon.TYPE_JUNK_OVER_DAY.equals(type) || NotififyFrequencyCon.TYPE_JUNK_OVER_SIZE.equals(type)
+                || NotififyFrequencyCon.TYPE_JUNK_STORAGE_UNSUFFICIENT.equals(type)){
            /* int junkCount = NotifyParamConfigManager.getInstance().getTodayNotificationCountForJunk();
-            Logger.d(TAG, "isThisKindOfNotifyTypeShowed junkCount = %d, maxCount = %d", junkCount, maxCount);
+            NLog.d(TAG, "isThisKindOfNotifyTypeShowed junkCount = %d, maxCount = %d", junkCount, maxCount);
             if (junkCount >= maxCount){
-                Logger.d(TAG, "today have showed one of the junk notification, do not notify");
+                NLog.d(TAG, "today have showed one of the junk notification, do not notify");
                 return true;
             }*/
             interrupt = new Random().nextInt(10) >= 5;
             if (interrupt){
-                Logger.e(TAG, "TYPE_JUNK isThisKindOfNotifyTypeShowed interrupted, not show");
+                NLog.e(TAG, "TodayHaveShowedThisTypeCon TYPE_JUNK  interrupted");
                 return true;
             }
-        }
-        //内存加速
-        else if (TYPE_BOOST.equals(type)){
-           /* int boostCount = NotifyParamConfigManager.getInstance().getTodayNotificationCountForBoost();
-            Logger.d(TAG, "isThisKindOfNotifyTypeShowed boostCount = %d, maxCount = %d", boostCount, maxCount);
+        }else if (NotififyFrequencyCon.TYPE_BOOST_OVER_DAY.equals(type) || NotififyFrequencyCon.TYPE_BOOST_UNSUFFICIENT.equals(type) ){
+            /* int boostCount = NotifyParamConfigManager.getInstance().getTodayNotificationCountForBoost();
+            NLog.d(TAG, "isThisKindOfNotifyTypeShowed boostCount = %d, maxCount = %d", boostCount, maxCount);
             if (boostCount >= maxCount){
-                Logger.d(TAG, "today have showed one of the junk notification, do not notify");
+                NLog.d(TAG, "today have showed one of the junk notification, do not notify");
                 return true;
             }*/
             interrupt = new Random().nextInt(10) >= 5;
             if (interrupt){
-                Logger.e(TAG, "TYPE_BOOST isThisKindOfNotifyTypeShowed interrupted, not show");
+                NLog.e(TAG, "TodayHaveShowedThisTypeCon TYPE_BOOST  interrupted");
                 return true;
             }
-        }
-        //软件管理
-        else if (TYPE_APPMGT.equals(type)){
-           /* int appMgtCount = NotifyParamConfigManager.getInstance().getTodayNotificationCountForAppMgt();
-            Logger.d(TAG, "isThisKindOfNotifyTypeShowed mgmtCount = %d, maxCount = %d", appMgtCount, maxCount);
+        }else if (NotififyFrequencyCon.TYPE_APPMGT_OVER_DAY.equals(type)){
+              /* int appMgtCount = NotifyParamConfigManager.getInstance().getTodayNotificationCountForAppMgt();
+            NLog.d(TAG, "isThisKindOfNotifyTypeShowed mgmtCount = %d, maxCount = %d", appMgtCount, maxCount);
             if (appMgtCount >= maxCount){
-                Logger.d(TAG, "today have showed one of the mgmt notification, do not notify");
+                NLog.d(TAG, "today have showed one of the mgmt notification, do not notify");
                 return true;
             }*/
             interrupt = new Random().nextInt(10) >= 5;
             if (interrupt){
-                Logger.e(TAG, "TYPE_APPMGT isThisKindOfNotifyTypeShowed interrupted, not show");
+                NLog.e(TAG, "TodayHaveShowedThisTypeCon TYPE_APPMGT  interrupted");
                 return true;
             }
         }
-        Logger.d(TAG, "today have not showed this kingd of notification, do notify");
+        NLog.d(TAG, "today have not showed this kingd of notification, do notify");
         return false;
     }
 
+
+    public void updateNotificationCount(){
+        if (NotififyFrequencyCon.TYPE_JUNK_OVER_DAY.equals(type) || NotififyFrequencyCon.TYPE_JUNK_OVER_SIZE.equals(type)
+                || NotififyFrequencyCon.TYPE_JUNK_STORAGE_UNSUFFICIENT.equals(type)){
+          /*  int junkCount = NotifyParamConfigManager.getInstance().getTodayNotificationCountForJunk();
+            NotifyParamConfigManager.getInstance().setTodayNotificationCountForJunk(++junkCount);
+            NLog.d(TAG, "send junk notification  count = %d", junkCount);*/
+        }else if (NotififyFrequencyCon.TYPE_BOOST_OVER_DAY.equals(type) || NotififyFrequencyCon.TYPE_BOOST_UNSUFFICIENT.equals(type) ){
+          /*  int boostCount = NotifyParamConfigManager.getInstance().getTodayNotificationCountForBoost();
+            NotifyParamConfigManager.getInstance().setTodayNotificationCountForBoost(++boostCount);
+            NLog.d(TAG, "send boost notification  count = %d", boostCount);*/
+        }else if (NotififyFrequencyCon.TYPE_APPMGT_OVER_DAY.equals(type)){
+           /* int appMgtCount = NotifyParamConfigManager.getInstance().getTodayNotificationCountForAppMgt();
+            NotifyParamConfigManager.getInstance().setTodayNotificationCountForAppMgt(++appMgtCount);
+            NLog.d(TAG, "send app mgt notification  count = %d", appMgtCount);*/
+        }
+    }
 }

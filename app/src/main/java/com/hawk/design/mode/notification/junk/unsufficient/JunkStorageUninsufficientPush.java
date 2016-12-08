@@ -22,7 +22,7 @@ public class JunkStorageUninsufficientPush extends ABaseNotifyPush{
 
     @Override
     public void runNotify() {
-        Logger.d(TAG,"JunkStorageUninsufficientPush show Notify");
+        NLog.d(TAG,"JunkStorageUninsufficientPush show Notify");
         boolean showNotificationResult = true;
         if (showNotificationResult) {
             onNotifySuccess();

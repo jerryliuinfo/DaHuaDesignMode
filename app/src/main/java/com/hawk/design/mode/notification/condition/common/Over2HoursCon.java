@@ -18,10 +18,10 @@ public class Over2HoursCon extends AConditionAction {
 
     @Override
     public boolean checkCondition() {
-        Logger.d(TAG, "Over2HoursCon checkCondition");
+        NLog.d(TAG, "Over2HoursCon checkCondition");
         boolean result = false;
         if (result){
-            Logger.e(TAG, "Over2HoursCon interrupted");
+            NLog.e(TAG, "Over2HoursCon interrupted");
         }
         return result;
     }

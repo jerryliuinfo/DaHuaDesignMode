@@ -23,7 +23,7 @@ public class TodayHaveShowedThisCon extends AConditionAction {
 
     @Override
     public boolean checkCondition() {
-        Logger.d(TAG, "TodayHaveShowedThisCon checkCondition");
+        NLog.d(TAG, "TodayHaveShowedThisCon checkCondition");
         return isTodayShowed();
     }
 
@@ -32,14 +32,14 @@ public class TodayHaveShowedThisCon extends AConditionAction {
         long lastUse = NotifyCommonConfigManager.getInstance().getLongValue(keyTime, -1);
         boolean interupt = false;
         /*if (lastUse > TimeStrUtil.getTimesmorning() && lastUse < TimeStrUtil.getTimesnight() ){
-            Logger.e(TAG, "TodayHaveShowedThisCon interupt");
+            NLog.e(TAG, "TodayHaveShowedThisCon interupt");
             interupt =  true;
         }*/
         return interupt;
     }
 
-    final public void setLastNotifyTime(long value) {
-        NotifyCommonConfigManager.getInstance().setLongValue(keyTime, value);
+    final public void updateLastNotifyTime() {
+        NotifyCommonConfigManager.getInstance().setLongValue(keyTime, System.currentTimeMillis());
     }
 
 

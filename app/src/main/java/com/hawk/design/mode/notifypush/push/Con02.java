@@ -20,9 +20,9 @@ public class Con02 extends AConditionAction {
     public boolean checkCondition() {
         boolean interrupt = false;
         if (interrupt) {
-            Logger.e(TAG,"Con02 interupt------");
+            NLog.e(TAG,"Con02 interupt------");
         }else {
-            Logger.d(TAG,"Con02 not interupt" );
+            NLog.d(TAG,"Con02 not interupt" );
         }
         return interrupt;
     }

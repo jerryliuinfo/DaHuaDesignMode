@@ -1,6 +1,6 @@
 package com.hawk.design.mode.notification;
 
-import com.hawk.design.mode.util.Logger;
+import com.hawk.design.mode.util.NLog;
 
 import static com.hawk.design.mode.permission.APermissionGroupAction.TAG;
 
@@ -20,17 +20,12 @@ public class NotifyHelper {
      */
     public static boolean haveAlreadyNotifiedIn48Hours(long lastNotify, long serverInterval){
         //for test
-
         // 距离上一次间隔在48小时内
         if (System.currentTimeMillis() - lastNotify < serverInterval ) {
-            Logger.d(TAG, "距离上一次通知此类通知间隔不足 %d 小时, do not notify",  serverInterval / NotificationConstants.ONE_HOUR_MILLES);
+            NLog.d(TAG, "距离上一次通知此类通知间隔不足 %d 小时, do not notify",  serverInterval / NotificationConstants.ONE_HOUR_MILLES);
             return true;
         }
-//        else {
-//            NLog.d(TAG, "notified in  48 hours from the last notify time, do not notify");
-//            result = true;
-//        }
-        Logger.d(TAG, "距离上一次通知此类通知间隔超过 %d 小时, do  notify",  serverInterval / NotificationConstants.ONE_HOUR_MILLES);
+        NLog.d(TAG, "距离上一次通知此类通知间隔超过 %d 小时, do  notify",  serverInterval / NotificationConstants.ONE_HOUR_MILLES);
         return false;
     }
 }

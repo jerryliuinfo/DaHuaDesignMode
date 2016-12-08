@@ -17,10 +17,10 @@ public class PhoningFullScreenCon extends AConditionAction {
     }
     @Override
     public boolean checkCondition() {
-        Logger.d(TAG, "PhoningFullScreenCon checkCondition");
+        NLog.d(TAG, "PhoningFullScreenCon checkCondition");
         boolean result = false;
         if (result){
-            Logger.e(TAG, "PhoningFullScreenCon interrupted");
+            NLog.e(TAG, "PhoningFullScreenCon interrupted");
         }
         return result;
     }

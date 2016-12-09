@@ -3,7 +3,7 @@ package com.hawk.design.mode.notification.condition;
 import com.hawk.design.mode.notification.NotifyCommonConfigManager;
 import com.hawk.design.mode.notifypush.push.AConditionAction;
 import com.hawk.design.mode.permission.IAction;
-import com.hawk.design.mode.util.Logger;
+import com.hawk.design.mode.util.NLog;
 
 /**
  * @author Jerry

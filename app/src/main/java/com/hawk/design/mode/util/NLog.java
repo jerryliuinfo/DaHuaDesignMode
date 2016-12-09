@@ -109,7 +109,7 @@ public final class NLog
 	{
 		if (debug)
 		{
-			NLog.d(tag, buildWholeMessage(format, args));
+			logger.d(tag, buildWholeMessage(format, args));
 		}
 	}
 
@@ -125,7 +125,7 @@ public final class NLog
 	{
 		if (debug)
 		{
-			NLog.e(tag, buildWholeMessage(format, args));
+			logger.e(tag, buildWholeMessage(format, args));
 		}
 	}
 
@@ -133,7 +133,7 @@ public final class NLog
 	{
 		if (debug)
 		{
-			NLog.e(tag, e);
+			logger.e(tag, e);
 		}
 	}
 
@@ -157,7 +157,7 @@ public final class NLog
 	{
 		if (debug)
 		{
-			NLog.e("TCLException", e);
+			logger.e("TCLException", e);
 		}
 	}
 }

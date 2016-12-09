@@ -35,13 +35,13 @@ public  class IndividualSwitchCondition extends AConditionAction {
             }
         }else if (NotififyFrequencyCon.TYPE_BOOST_OVER_DAY.equals(type) || NotififyFrequencyCon.TYPE_BOOST_UNSUFFICIENT.equals(type) ){
             //获取内存加速的云端控制开关
-            interrupt = true;
+            interrupt = false;
             if (interrupt){
                 NLog.e(TAG, "IndividualSwitchCondition TYPE_BOOST interupt");
             }
         }else if (NotififyFrequencyCon.TYPE_APPMGT_OVER_DAY.equals(type)){
             //获取软件管理的云端控制开关
-            interrupt = true;
+            interrupt = false;
             if (!interrupt){
                 NLog.e(TAG, "IndividualSwitchCondition TYPE_APPMGT interupt");
             }

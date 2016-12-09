@@ -7,7 +7,7 @@ import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
-import com.hawk.design.mode.util.Logger;
+import com.hawk.design.mode.util.NLog;
 
 
 /**
@@ -107,7 +107,6 @@ public abstract class APermissionsAction extends IAction implements IPermissions
         try {
             getContext().requestPermissions(new String[]{ permission }, requestCode);
         } catch (IllegalArgumentException e) {
-            Logger.printExc(APermissionsAction.class, e);
         }
     }
 

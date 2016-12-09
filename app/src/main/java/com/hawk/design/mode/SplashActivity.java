@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.hawk.design.mode.notification.boost.unsufficient.RamUnsufficientPush;
 import com.hawk.design.mode.notification.junk.overday.JunkLongTimeUnusedPush;
 import com.hawk.design.mode.notification.junk.oversize.JunkOverSizePush;
 import com.hawk.design.mode.permission.IAction;
@@ -33,8 +34,8 @@ public class SplashActivity extends AppCompatActivity {
                 Con03 con03 = new Con03(null, con02);// 随机中断
                 Con04 con04 = new Con04(null, con03);// 随机中断*/
 
-//                RamUnsufficientPush ramUnsufficientPush =  RamUnsufficientPush.newInstace(null);
-                JunkOverSizePush junkOverSizePush = JunkOverSizePush.newInstace(null);
+                RamUnsufficientPush ramUnsufficientPush =  RamUnsufficientPush.newInstace(null);
+                JunkOverSizePush junkOverSizePush = JunkOverSizePush.newInstace(ramUnsufficientPush);
                 JunkLongTimeUnusedPush junkLongTimeNoUsedPush = JunkLongTimeUnusedPush.newInstace(junkOverSizePush);
                 junkLongTimeNoUsedPush.run();
                 NLog.d(IAction.TAG,"------------------------------------------------------>");

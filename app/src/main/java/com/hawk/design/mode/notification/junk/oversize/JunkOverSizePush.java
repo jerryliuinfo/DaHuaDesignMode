@@ -3,7 +3,7 @@ package com.hawk.design.mode.notification.junk.oversize;
 import com.hawk.design.mode.notification.ABaseNotifyPush;
 import com.hawk.design.mode.notification.condition.IndividualSwitchCondition;
 import com.hawk.design.mode.notification.condition.NotififyFrequencyCon;
-import com.hawk.design.mode.notification.condition.ThresoldCon;
+import com.hawk.design.mode.notification.condition.AThresoldCon;
 import com.hawk.design.mode.notification.condition.TodayHaveShowedThisCon;
 import com.hawk.design.mode.notification.condition.TodayHaveShowedThisTypeCon;
 import com.hawk.design.mode.notifypush.push.Con01;
@@ -33,7 +33,7 @@ public class JunkOverSizePush extends ABaseNotifyPush {
         //4.检查通知频率间隔是否满足了要求
         NotififyFrequencyCon notififyFrequencyCon = new NotififyFrequencyCon(todayHaveShowedCon,NotififyFrequencyCon.TYPE_JUNK_OVER_DAY);
         //5.检查阀值
-        ThresoldCon thresoldCon = new ThresoldCon(notififyFrequencyCon);
+        AThresoldCon thresoldCon = new JunkOverSizeOverThresoldCon(notififyFrequencyCon);
         JunkOverSizePush push = new JunkOverSizePush(parentPush, thresoldCon) {
 
             @Override

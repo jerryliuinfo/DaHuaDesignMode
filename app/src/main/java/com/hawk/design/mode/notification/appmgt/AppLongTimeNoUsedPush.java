@@ -1,4 +1,4 @@
-package com.hawk.design.mode.notification.junk.overday;
+package com.hawk.design.mode.notification.appmgt;
 
 import com.hawk.design.mode.notification.ABaseNotifyPush;
 import com.hawk.design.mode.notification.condition.AThresoldCon;
@@ -15,28 +15,27 @@ import com.hawk.design.mode.util.NLog;
 /**
  * @author Jerry
  * @Description:
- * @date 2016/12/7 16:09
+ * @date 2016/12/8 11:09
  * @copyright TCL-MIG
  */
 
-public class JunkLongTimeUnusedPush extends ABaseNotifyPush {
-
-    public static JunkLongTimeUnusedPush newInstace(IAction parentPush) {
+public class AppLongTimeNoUsedPush extends ABaseNotifyPush {
+    public static AppLongTimeNoUsedPush newInstace(IAction parentPush) {
         // 组装公共条件
         IAction commonCondition = getCommonCondition();
         /*****************************组装自己条件******************************/
         //1.检查单独开关
-        IndividualSwitchCondition switchCondition = new IndividualSwitchCondition(commonCondition,NotififyFrequencyCon.TYPE_JUNK_OVER_DAY);
+        IndividualSwitchCondition switchCondition = new IndividualSwitchCondition(commonCondition, NotififyFrequencyCon.TYPE_APPMGT_OVER_DAY);
         //2.检查今天是否有弹此类通知
-        final TodayHaveShowedThisTypeCon todayHaveShowedThisTypeCon = new TodayHaveShowedThisTypeCon(switchCondition,NotififyFrequencyCon.TYPE_JUNK_OVER_DAY);
+        final TodayHaveShowedThisTypeCon todayHaveShowedThisTypeCon = new TodayHaveShowedThisTypeCon(switchCondition,NotififyFrequencyCon.TYPE_APPMGT_OVER_DAY);
         //3.检查今天是否有弹过这个通知
-        final TodayHaveShowedThisCon todayHaveShowedCon = new TodayHaveShowedThisCon(todayHaveShowedThisTypeCon, "last_notify_unuse_longtime");
+        final TodayHaveShowedThisCon todayHaveShowedCon = new TodayHaveShowedThisCon(todayHaveShowedThisTypeCon, "app_mgt_last_notify_unuse_longtime");
         //4.检查通知频率间隔是否满足了要求
-        NotififyFrequencyCon notififyFrequencyCon = new NotififyFrequencyCon(todayHaveShowedCon,NotififyFrequencyCon.TYPE_JUNK_OVER_DAY);
+        NotififyFrequencyCon notififyFrequencyCon = new NotififyFrequencyCon(todayHaveShowedCon,NotififyFrequencyCon.TYPE_APPMGT_OVER_DAY);
         //5.检查阀值
-        AThresoldCon thresoldCon = new JunkLongTimeOverThresoldCon(notififyFrequencyCon);
+        AThresoldCon thresoldCon = new AppmgtLongTimeOverThresoldCon(notififyFrequencyCon);
 
-        JunkLongTimeUnusedPush push = new JunkLongTimeUnusedPush(parentPush, thresoldCon) {
+        AppLongTimeNoUsedPush push = new AppLongTimeNoUsedPush(parentPush, thresoldCon) {
 
             @Override
             public void onNotifySuccess() {
@@ -50,7 +49,7 @@ public class JunkLongTimeUnusedPush extends ABaseNotifyPush {
         return push;
     }
 
-    private JunkLongTimeUnusedPush(IAction parentPush, IAction conditionAction) {
+    private AppLongTimeNoUsedPush(IAction parentPush, IAction conditionAction) {
         super(null, parentPush, conditionAction);
     }
 
@@ -67,7 +66,7 @@ public class JunkLongTimeUnusedPush extends ABaseNotifyPush {
 
     @Override
     public void runNotify() {
-        NLog.d(TAG,"JunkLongTimeUnusedPush show Notify");
+        NLog.d(TAG,"AppLongTimeNoUsedPush show Notify");
 
         boolean showNotificationResult = true;
         if (showNotificationResult) {
@@ -77,7 +76,4 @@ public class JunkLongTimeUnusedPush extends ABaseNotifyPush {
             onNotifyFaild();
         }
     }
-
-
-
 }

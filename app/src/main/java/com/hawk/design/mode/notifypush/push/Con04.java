@@ -1,9 +1,7 @@
 package com.hawk.design.mode.notifypush.push;
 
-import android.app.Activity;
-
 import com.hawk.design.mode.permission.IAction;
-import com.hawk.design.mode.util.Logger;
+import com.hawk.design.mode.util.NLog;
 
 import java.util.Random;
 

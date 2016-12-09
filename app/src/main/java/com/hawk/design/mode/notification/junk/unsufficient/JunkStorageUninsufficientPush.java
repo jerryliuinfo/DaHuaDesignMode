@@ -4,7 +4,7 @@ import android.app.Activity;
 
 import com.hawk.design.mode.notification.ABaseNotifyPush;
 import com.hawk.design.mode.permission.IAction;
-import com.hawk.design.mode.util.Logger;
+import com.hawk.design.mode.util.NLog;
 
 /**
  * @author Jerry

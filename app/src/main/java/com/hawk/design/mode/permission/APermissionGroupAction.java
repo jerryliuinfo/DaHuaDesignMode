@@ -7,7 +7,7 @@ import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
-import com.hawk.design.mode.util.Logger;
+import com.hawk.design.mode.util.NLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,14 +114,13 @@ public abstract class APermissionGroupAction extends IAction implements IPermiss
             subject.attach(this);
         }
 
-        NLog.d(TAG, permissions);
+        //NLog.d(TAG, permissions);
 
         // XT1562(Motorola) 这里会上报一个这样的错误，暂时搞不懂为什么
         // java.lang.IllegalArgumentException:Wake lock not active: android.os.Binder@3e69cbf from uid 1000
         try {
             getContext().requestPermissions(permissions, requestCode);
         } catch (IllegalArgumentException e) {
-            Logger.printExc(APermissionGroupAction.class, e);
         }
     }
 

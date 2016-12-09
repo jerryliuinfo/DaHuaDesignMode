@@ -26,13 +26,9 @@ public class TodayHaveShowedThisTypeCon extends AConditionAction {
     @Override
     public boolean checkCondition() {
         NLog.d(TAG, "TodayHaveShowedThisTypeCon checkCondition");
-        return isThisKindOfTypeShowed();
-    }
-
-    private boolean isThisKindOfTypeShowed() {
-
         return isThisKindOfNotifyTypeShowed();
     }
+
 
 
 
@@ -83,7 +79,7 @@ public class TodayHaveShowedThisTypeCon extends AConditionAction {
                 return true;
             }
         }
-        NLog.d(TAG, "today have not showed this kingd of notification, do notify");
+        //NLog.d(TAG, "today have not showed this kingd of notification, do notify");
         return false;
     }
 

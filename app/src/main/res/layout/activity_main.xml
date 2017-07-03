@@ -10,8 +10,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     >
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+         />
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        />
 </RelativeLayout>

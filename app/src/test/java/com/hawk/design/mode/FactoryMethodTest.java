@@ -5,9 +5,6 @@ import com.hawk.design.mode.factorymethod.DivFactory;
 import com.hawk.design.mode.factorymethod.IFactory;
 import com.hawk.design.mode.factorymethod.MultiFactory;
 import com.hawk.design.mode.factorymethod.SubFactory;
-import com.hawk.design.mode.proxy.Proxy;
-import com.hawk.design.mode.proxy.ProxySubject;
-import com.hawk.design.mode.proxy.SchoolGirl;
 import com.hawk.design.mode.simplefactory.IOperation;
 
 import org.junit.Test;

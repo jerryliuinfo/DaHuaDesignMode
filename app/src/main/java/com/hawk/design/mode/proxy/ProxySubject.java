@@ -10,10 +10,12 @@ public class ProxySubject implements Subject {
         realSubject = new RealSubject();
     }
 
+
     @Override
-    public void request() {
+    public void doSomething() {
         if (realSubject != null){
-            realSubject.request();
+            realSubject.doSomething();
         }
     }
+
 }

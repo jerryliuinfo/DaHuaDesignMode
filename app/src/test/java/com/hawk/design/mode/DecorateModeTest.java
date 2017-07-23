@@ -1,6 +1,9 @@
 package com.hawk.design.mode;
 
 import com.hawk.design.mode.decoate.BigTrouser;
+import com.hawk.design.mode.decoate.ConcreteComponent;
+import com.hawk.design.mode.decoate.ConcreteDecorateA;
+import com.hawk.design.mode.decoate.ConcreteDecorateB;
 import com.hawk.design.mode.decoate.LeatherShoes;
 import com.hawk.design.mode.decoate.Person;
 import com.hawk.design.mode.decoate.Sneakes;
@@ -40,5 +43,18 @@ public class DecorateModeTest {
         suit.decorate(shoes);
         tie.decorate(suit);
         tie.show();
+
+
+        ConcreteComponent c = new ConcreteComponent();
+        ConcreteDecorateA d1 = new ConcreteDecorateA();
+        ConcreteDecorateB d2 = new ConcreteDecorateB();
+
+        d1.setComponent(c);
+        d2.setComponent(d1);
+        d2.operation();
+
+
+
+
     }
 }

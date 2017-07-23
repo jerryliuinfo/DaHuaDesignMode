@@ -1,6 +1,8 @@
 package com.hawk.design.mode;
 
+import com.hawk.design.mode.proxy.MyProxy;
 import com.hawk.design.mode.proxy.RealSubject;
+import com.hawk.design.mode.proxy.SchoolGirl;
 import com.hawk.design.mode.proxy.Subject;
 import com.hawk.design.mode.proxy.Subject2;
 import com.hawk.design.mode.proxy.dynamic.ProxyHandler;
@@ -19,15 +21,15 @@ import java.lang.reflect.Proxy;
 public class ProxyTest {
     @Test
     public void testProxyMode() throws Exception {
-        /*SchoolGirl girl = new SchoolGirl("Lucy");
+        SchoolGirl girl = new SchoolGirl("Lucy");
         MyProxy proxy = new MyProxy(girl);
         proxy.giveDolls();
         proxy.giveFlowers();
         proxy.giveChocolate();
 
 
-        ProxySubject proxySubject = new ProxySubject();
-        proxySubject.request();*/
+//        ProxySubject proxySubject = new ProxySubject();
+//        proxySubject.request();
 
         RealSubject realSubject = new RealSubject();
         /*Subject proxySubject = (Subject) Proxy.newProxyInstance(ProxyTest.class.getClassLoader(),new Class[]{Subject.class},new ProxyHandler(realSubject));

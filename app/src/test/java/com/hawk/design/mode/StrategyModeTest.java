@@ -26,5 +26,9 @@ public class StrategyModeTest {
 
         context = new StrategyContext(StrategyContext.STRATEGY_RETURN);
         System.out.println("STRATEGY_RETURN total price = "+context.payMoney(count * price));
+
+
+
+
     }
 }

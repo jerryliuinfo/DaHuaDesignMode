@@ -1,5 +1,10 @@
 package com.hawk.design.mode.paySalary.domain;
 
+import com.hawk.design.mode.paySalary.classify.IPayClassify;
+import com.hawk.design.mode.paySalary.paymethod.IPayMethod;
+import com.hawk.design.mode.paySalary.reduce.IReduce;
+import com.hawk.design.mode.paySalary.schedule.IPayDate;
+
 import java.util.Date;
 
 
@@ -8,41 +13,46 @@ public class Employee {
 	private String name;
 	private Integer age;
 	private Integer sex;
-	private PayClassify classify;//支付策略类型
-	private IPayDate payDateUtil;//支付时间抽象类
-	private PaymentMethod paymentMethod;//支付方式
-	private Reduce reduce;//扣除项
+	private IPayClassify classify;//支付策略类型
+	private IPayDate IPayDate;//支付时间抽象类
+	private IPayMethod IPayMethod;//支付方式
+	private IReduce iReduce;//扣除项
 
 	public Employee(String id, String name){
 		this.id = id;
 		this.name = name;
 	}
 	public boolean isPayDay(Date d) {
-		return this.payDateUtil.isPayDate(d);
+		return this.IPayDate.isPayDate(d);
 	}
 
 	public Date getStartDate(Date d) {
-		return this.payDateUtil.getPayPeriodStartDate(d);
+		return this.IPayDate.getPayPeriodStartDate(d);
 	}
 
 	public void payDay(PayDetail detail){
 		 double grossPay = classify.calculatePay(detail);
-		 double deductions = reduce.calculateDeductions(detail);
+		 double deductions = iReduce.calculateDeductions(detail);
 		 double netPay = grossPay - deductions;
 		 detail.setGrossPay(grossPay);
 		 detail.setDeductions(deductions);
 		 detail.setNetPay(netPay);
-		 paymentMethod.pay(detail);
+		 IPayMethod.pay(detail);
 	}
 	
-	public void setClassification(PayClassify classify) {
+	public void setClassification(IPayClassify classify) {
 		this.classify = classify;
 	}
 	public void setSchedule(IPayDate payDateUtil) {
-		this.payDateUtil = payDateUtil;
+		this.IPayDate = payDateUtil;
 	}
-	public void setPaymentMethod(PaymentMethod paymentMethod) {
-		this.paymentMethod = paymentMethod;
+	public void setIPayMethod(IPayMethod IPayMethod) {
+		this.IPayMethod = IPayMethod;
+	}
+
+
+	public void setiReduce(IReduce iReduce) {
+		this.iReduce = iReduce;
 	}
 }
 

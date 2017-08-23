@@ -12,9 +12,7 @@ import java.util.Map;
  * @author tery
  *
  */
-public class UnionReduce implements Reduce {
-
-	
+public class UnionReduce implements IReduce {
 
 	private String memberID;
 	private double weeklyDue;

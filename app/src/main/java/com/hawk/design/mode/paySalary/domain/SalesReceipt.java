@@ -2,6 +2,9 @@ package com.hawk.design.mode.paySalary.domain;
 
 import java.util.Date;
 
+/**
+ * 销售提成
+ */
 public class SalesReceipt {
 	private Date saleDate;
 	private double amount;

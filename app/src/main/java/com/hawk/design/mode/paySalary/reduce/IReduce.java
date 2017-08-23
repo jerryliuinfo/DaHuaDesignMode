@@ -3,7 +3,10 @@ package com.hawk.design.mode.paySalary.reduce;
 
 import com.hawk.design.mode.paySalary.domain.PayDetail;
 
-public interface Reduce {
+/**
+ * 扣除项
+ */
+public interface IReduce {
 
 	 double calculateDeductions(PayDetail detail);
 }

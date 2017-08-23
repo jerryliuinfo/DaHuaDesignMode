@@ -1,11 +1,11 @@
 package com.hawk.design.mode.paySalary.classify;
 
-import com.hawk.design.mode.paySalary.domain.PayClassify;
 import com.hawk.design.mode.paySalary.domain.PayDetail;
 import com.hawk.design.mode.paySalary.domain.TimeCard;
 import com.hawk.design.mode.paySalary.util.DateUtil;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -15,11 +15,12 @@ import java.util.Map;
  *
  */
 
-public class HourlPayClassify implements PayClassify {
+public class HourlIPayClassify implements IPayClassify {
 	private double rate;
 	private Map<Date, TimeCard> timeCards;
 	
-	public HourlPayClassify(double hourlyRate) {
+	public HourlIPayClassify(double hourlyRate) {
+		timeCards = new HashMap<>();
 		this.rate = hourlyRate;
 	}
 	public void addTimeCard(TimeCard tc){

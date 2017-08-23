@@ -2,6 +2,9 @@ package com.hawk.design.mode.paySalary.domain;
 
 import java.util.Date;
 
+/**
+ * 按公时计算
+ */
 public class TimeCard {
 	private Date date;
 	private int hours;

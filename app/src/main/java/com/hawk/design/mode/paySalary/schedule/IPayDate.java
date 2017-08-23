@@ -1,4 +1,4 @@
-package com.hawk.design.mode.paySalary.domain;
+package com.hawk.design.mode.paySalary.schedule;
 
 import java.util.Date;
 /**

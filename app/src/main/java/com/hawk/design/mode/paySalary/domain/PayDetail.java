@@ -32,4 +32,28 @@ public class PayDetail {
 		
 		return this.start;
 	}
+
+	public Date getStart() {
+		return start;
+	}
+
+	public Date getEnd() {
+		return end;
+	}
+
+	public double getGrossPay() {
+		return grossPay;
+	}
+
+	public double getNetPay() {
+		return netPay;
+	}
+
+	public double getDeductions() {
+		return deductions;
+	}
+
+	public Map<String, String> getItsFields() {
+		return itsFields;
+	}
 }

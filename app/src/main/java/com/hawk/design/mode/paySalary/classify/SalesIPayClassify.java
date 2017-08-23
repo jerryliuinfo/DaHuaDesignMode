@@ -1,11 +1,11 @@
 package com.hawk.design.mode.paySalary.classify;
 
-import com.hawk.design.mode.paySalary.domain.PayClassify;
 import com.hawk.design.mode.paySalary.domain.PayDetail;
 import com.hawk.design.mode.paySalary.domain.SalesReceipt;
 import com.hawk.design.mode.paySalary.util.DateUtil;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -13,10 +13,11 @@ import java.util.Map;
  * @author tery
  *
  */
-public class SalesPayClassify implements PayClassify {
+public class SalesIPayClassify implements IPayClassify {
 	double salary;
 	double rate;
-	public SalesPayClassify(double salary , double rate){
+	public SalesIPayClassify(double salary , double rate){
+		receipts = new HashMap<>();
 		this.salary = salary;
 		this.rate = rate;
 	}

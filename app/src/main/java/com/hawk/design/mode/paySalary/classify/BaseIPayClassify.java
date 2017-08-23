@@ -1,7 +1,6 @@
 package com.hawk.design.mode.paySalary.classify;
 
 
-import com.hawk.design.mode.paySalary.domain.PayClassify;
 import com.hawk.design.mode.paySalary.domain.PayDetail;
 
 /**
@@ -9,9 +8,9 @@ import com.hawk.design.mode.paySalary.domain.PayDetail;
  * @author tery
  *
  */
-public class BasePayClassify implements PayClassify {
+public class BaseIPayClassify implements IPayClassify {
 	private double salary;
-	public BasePayClassify(double salary){
+	public BaseIPayClassify(double salary){
 		this.salary = salary;
 	}
 	@Override

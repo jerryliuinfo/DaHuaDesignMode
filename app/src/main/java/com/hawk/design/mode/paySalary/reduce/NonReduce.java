@@ -4,11 +4,10 @@ package com.hawk.design.mode.paySalary.reduce;
 import com.hawk.design.mode.paySalary.domain.PayDetail;
 
 /**
- * 空对象
- * @author tery
+ * 不扣除
  *
  */
-public class NonReduce implements Reduce{
+public class NonReduce implements IReduce {
 	@Override
 	public double calculateDeductions(PayDetail detail) {
 		

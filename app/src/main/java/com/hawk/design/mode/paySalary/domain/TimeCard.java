@@ -15,4 +15,10 @@ public class TimeCard {
 	public int getHours() {
 		return hours;
 	}
+
+
+	public TimeCard(Date date, int hours) {
+		this.date = date;
+		this.hours = hours;
+	}
 }

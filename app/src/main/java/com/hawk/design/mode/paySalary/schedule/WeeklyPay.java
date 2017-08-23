@@ -15,7 +15,8 @@ public class WeeklyPay implements IPayDate {
 		return DateUtil.isFriday(date);
 	}
 	@Override
-	public Date getPayPeriodStartDate(Date payPeriodEndDate) {		
+	public Date getPayPeriodStartDate(Date payPeriodEndDate) {
+		//从本次支付时间减去6天 也就是从上周六开始
 		return DateUtil.add(payPeriodEndDate, -6);
 	}
 

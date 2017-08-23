@@ -15,11 +15,11 @@ import java.util.Map;
  *
  */
 
-public class HourlIPayClassify implements IPayClassify {
+public class HourPayClassify implements IPayClassify {
 	private double rate;
 	private Map<Date, TimeCard> timeCards;
 	
-	public HourlIPayClassify(double hourlyRate) {
+	public HourPayClassify(double hourlyRate) {
 		timeCards = new HashMap<>();
 		this.rate = hourlyRate;
 	}
@@ -46,6 +46,11 @@ public class HourlIPayClassify implements IPayClassify {
 	    } else{
 	    	return 12*rate;
 	    }
+	}
+
+
+	public Map<Date, TimeCard> getTimeCards() {
+		return timeCards;
 	}
 }
 

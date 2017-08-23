@@ -8,9 +8,9 @@ import com.hawk.design.mode.paySalary.domain.PayDetail;
  * @author tery
  *
  */
-public class BaseIPayClassify implements IPayClassify {
+public class FixedPayClassify implements IPayClassify {
 	private double salary;
-	public BaseIPayClassify(double salary){
+	public FixedPayClassify(double salary){
 		this.salary = salary;
 	}
 	@Override

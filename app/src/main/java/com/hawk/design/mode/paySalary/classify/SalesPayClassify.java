@@ -13,10 +13,10 @@ import java.util.Map;
  * @author tery
  *
  */
-public class SalesIPayClassify implements IPayClassify {
+public class SalesPayClassify implements IPayClassify {
 	double salary;
 	double rate;
-	public SalesIPayClassify(double salary , double rate){
+	public SalesPayClassify(double salary , double rate){
 		receipts = new HashMap<>();
 		this.salary = salary;
 		this.rate = rate;

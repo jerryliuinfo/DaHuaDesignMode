@@ -19,6 +19,7 @@ public class OverWeekPay implements IPayDate {
 
 	@Override
 	public Date getPayPeriodStartDate(Date payPeriodEndDate) {
+		//隔一周周五支付 从本次支付时间减去13天 也就是从上上周六开始
 		return DateUtil.add(payPeriodEndDate, -13);
 		
 	}

@@ -7,6 +7,17 @@ import java.util.Date;
  *
  */
 public interface IPayDate {
+	/**
+	 * 是否时支付日
+	 * @param date
+	 * @return
+	 */
 	 boolean isPayDate(Date date);
+
+	/**
+	 *
+	 * @param endDate
+	 * @return
+	 */
 	 Date getPayPeriodStartDate(Date endDate);
 }

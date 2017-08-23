@@ -4,8 +4,8 @@ import java.util.Date;
 import java.util.Map;
 
 public class PayDetail {
-	private Date start;
-	private Date end;
+	private Date start;//开始日期
+	private Date end; //结束日期
 	private double grossPay;//应付
 	private double netPay;//实发
 	private double deductions;//扣除

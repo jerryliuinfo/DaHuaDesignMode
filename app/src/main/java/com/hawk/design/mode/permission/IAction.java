@@ -7,7 +7,7 @@ import android.app.Activity;
  */
 
 public abstract class IAction {
-    public static final String TAG = "IAction";
+    public static final String TAG = "Barbecue";
     private Activity context;
 
     private IAction parent;

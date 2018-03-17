@@ -16,12 +16,13 @@ import java.util.Map;
 public class SalesPayClassify implements IPayClassify {
 	double salary;
 	double rate;
+	Map<Date, SalesReceipt> receipts;
 	public SalesPayClassify(double salary , double rate){
 		receipts = new HashMap<>();
 		this.salary = salary;
 		this.rate = rate;
 	}
-	Map<Date, SalesReceipt> receipts;
+
 	@Override
 	public double calculatePay(PayDetail detail) {
 		double commission = 0.0;

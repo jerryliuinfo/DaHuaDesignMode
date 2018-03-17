@@ -1,15 +1,11 @@
 package com.hawk.design.mode;
 
-import com.hawk.design.mode.proxy.MyProxy;
-import com.hawk.design.mode.proxy.RealSubject;
-import com.hawk.design.mode.proxy.SchoolGirl;
-import com.hawk.design.mode.proxy.Subject;
-import com.hawk.design.mode.proxy.Subject2;
-import com.hawk.design.mode.proxy.dynamic.ProxyHandler;
+import com.hawk.design.mode.proxy.AbstractTicket;
+import com.hawk.design.mode.proxy.dynamic.TellerProxy;
+import com.hawk.design.mode.proxy.stati.People;
+import com.hawk.design.mode.proxy.stati.Teller;
 
 import org.junit.Test;
-
-import java.lang.reflect.Proxy;
 
 /**
  * @author Jerry
@@ -21,24 +17,33 @@ import java.lang.reflect.Proxy;
 public class ProxyTest {
     @Test
     public void testProxyMode() throws Exception {
-        SchoolGirl girl = new SchoolGirl("Lucy");
-        MyProxy proxy = new MyProxy(girl);
-        proxy.giveDolls();
-        proxy.giveFlowers();
-        proxy.giveChocolate();
 
 
-//        ProxySubject proxySubject = new ProxySubject();
-//        proxySubject.request();
+        People people = new People(2);
+        Teller teller = new Teller(people);
+        teller.checkTicket("haha",2);
 
-        RealSubject realSubject = new RealSubject();
-        /*Subject proxySubject = (Subject) Proxy.newProxyInstance(ProxyTest.class.getClassLoader(),new Class[]{Subject.class},new ProxyHandler(realSubject));
-        proxySubject.doSomething();*/
 
-        Subject proxySubject = (Subject) Proxy.newProxyInstance(ProxyTest.class.getClassLoader(), new Class[]{Subject.class, Subject2.class}, new ProxyHandler(realSubject) );
-        proxySubject.doSomething();
 
-        ((Subject2) proxySubject).doSomething2();
+        people = new People(100);
+        teller = new Teller(people);
+        teller.checkTicket("haha",100);
+
+
+        //1.创建委托类的实例，即被代理的对象
+        People zhangsan = new People(5);
+        //2.创建调用处理器
+        TellerProxy proxy = new TellerProxy(zhangsan);
+
+        //3.动态生成代理对象
+        AbstractTicket ticket  = (AbstractTicket) proxy.getProxyInstance();
+
+        //4.通过代理对象调用方法
+        ticket.checkTicket("zhangsan",100);
+
+
+
+
 
     }
 }

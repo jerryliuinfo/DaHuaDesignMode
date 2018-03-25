@@ -1,4 +1,6 @@
-package com.hawk.design.mode.simplefactory;
+package com.hawk.design.mode.factory.simplefactory;
+
+import com.hawk.design.mode.factory.IOperation;
 
 /**
  * @author Jerry

@@ -1,7 +1,6 @@
-package com.hawk.design.mode;
+package com.hawk.design.mode.factory;
 
-import com.hawk.design.mode.simplefactory.IOperation;
-import com.hawk.design.mode.simplefactory.OperationFactory;
+import com.hawk.design.mode.factory.simplefactory.OperationFactory;
 
 import org.junit.Test;
 

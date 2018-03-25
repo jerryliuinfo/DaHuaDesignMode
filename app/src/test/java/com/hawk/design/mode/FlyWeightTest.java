@@ -1,7 +1,7 @@
 package com.hawk.design.mode;
 
 import com.hawk.design.mode.flyweight.IWebsite;
-import com.hawk.design.mode.flyweight.User;
+import com.hawk.design.mode.bean.User;
 import com.hawk.design.mode.flyweight.WebsiteFactory;
 
 import org.junit.Test;

@@ -1,11 +1,10 @@
-package com.hawk.design.mode;
+package com.hawk.design.mode.factory;
 
-import com.hawk.design.mode.factorymethod.AddFactory;
-import com.hawk.design.mode.factorymethod.DivFactory;
-import com.hawk.design.mode.factorymethod.IFactory;
-import com.hawk.design.mode.factorymethod.MultiFactory;
-import com.hawk.design.mode.factorymethod.SubFactory;
-import com.hawk.design.mode.simplefactory.IOperation;
+import com.hawk.design.mode.factory.factorymethod.AddFactory;
+import com.hawk.design.mode.factory.factorymethod.DivFactory;
+import com.hawk.design.mode.factory.factorymethod.IFactory;
+import com.hawk.design.mode.factory.factorymethod.MultiFactory;
+import com.hawk.design.mode.factory.factorymethod.SubFactory;
 
 import org.junit.Test;
 

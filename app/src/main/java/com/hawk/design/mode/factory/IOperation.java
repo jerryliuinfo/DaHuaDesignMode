@@ -1,4 +1,4 @@
-package com.hawk.design.mode.simplefactory;
+package com.hawk.design.mode.factory;
 
 /**
  * @author Jerry

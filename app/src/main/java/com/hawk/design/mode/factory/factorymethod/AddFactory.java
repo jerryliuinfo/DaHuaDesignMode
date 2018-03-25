@@ -1,7 +1,7 @@
-package com.hawk.design.mode.factorymethod;
+package com.hawk.design.mode.factory.factorymethod;
 
-import com.hawk.design.mode.simplefactory.IOperation;
-import com.hawk.design.mode.simplefactory.OperationAdd;
+import com.hawk.design.mode.factory.IOperation;
+import com.hawk.design.mode.factory.simplefactory.OperationAdd;
 
 /**
  * Created by lenovo on 2016/11/1.

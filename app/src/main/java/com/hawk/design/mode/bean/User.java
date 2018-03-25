@@ -1,4 +1,4 @@
-package com.hawk.design.mode.flyweight;
+package com.hawk.design.mode.bean;
 
 /**
  * Created by 01370340 on 2017/8/31.

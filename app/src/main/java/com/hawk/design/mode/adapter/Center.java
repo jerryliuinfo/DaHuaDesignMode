@@ -19,4 +19,6 @@ public class Center extends Player {
     public void defense() {
         System.out.println("Center  defense"+ getPlayer());
     }
+
+
 }

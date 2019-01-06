@@ -8,11 +8,5 @@ package com.hawk.design.mode.factory;
  */
 
 public interface IOperation {
-    /**
-     *
-     * @param num1
-     * @param num2
-     * @return
-     */
     double caculate(double num1, double num2);
 }

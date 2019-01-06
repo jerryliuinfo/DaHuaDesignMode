@@ -37,13 +37,10 @@ public class DecorateModeTest {
         Suit suit = new Suit();
         LeatherShoes shoes = new LeatherShoes();
 
-
-
         shoes.decorate(person);
         suit.decorate(shoes);
         tie.decorate(suit);
         tie.show();
-
 
         ConcreteComponent c = new ConcreteComponent();
         ConcreteDecorateA d1 = new ConcreteDecorateA();
@@ -52,9 +49,5 @@ public class DecorateModeTest {
         d1.setComponent(c);
         d2.setComponent(d1);
         d2.operation();
-
-
-
-
     }
 }

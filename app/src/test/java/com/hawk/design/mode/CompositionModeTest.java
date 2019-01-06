@@ -1,10 +1,10 @@
 package com.hawk.design.mode;
 
-import com.hawk.design.mode.bridge.AHandsetBrand;
-import com.hawk.design.mode.bridge.HandsetAddressList;
-import com.hawk.design.mode.bridge.HandsetBrandM;
-import com.hawk.design.mode.bridge.HandsetBrandN;
-import com.hawk.design.mode.bridge.HandsetGame;
+import com.hawk.design.mode.bridge.handset.AHandsetBrand;
+import com.hawk.design.mode.bridge.handset.HandsetAddressList;
+import com.hawk.design.mode.bridge.handset.HandsetBrandM;
+import com.hawk.design.mode.bridge.handset.HandsetBrandN;
+import com.hawk.design.mode.bridge.handset.HandsetGame;
 
 import org.junit.Test;
 

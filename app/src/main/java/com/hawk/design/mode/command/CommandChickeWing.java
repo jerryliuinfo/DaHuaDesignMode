@@ -4,10 +4,10 @@ package com.hawk.design.mode.command;
  * Created by jerryliu on 2017/8/29.
  */
 
-public class BakeChickeWingCommand extends Command {
+public class CommandChickeWing extends Command {
 
 
-    public BakeChickeWingCommand(IBarbecure barbecue) {
+    public CommandChickeWing(IOperation barbecue) {
         super(barbecue);
     }
 

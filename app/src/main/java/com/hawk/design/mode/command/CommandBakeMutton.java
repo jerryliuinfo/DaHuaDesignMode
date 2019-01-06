@@ -2,12 +2,13 @@ package com.hawk.design.mode.command;
 
 /**
  * Created by jerryliu on 2017/8/29.
+ * 烤肉命令依赖烤肉串者
  */
 
-public class BakeMuttonCommand extends Command {
+public class CommandBakeMutton extends Command {
 
 
-    public BakeMuttonCommand(IBarbecure barbecue) {
+    public CommandBakeMutton(IOperation barbecue) {
         super(barbecue);
     }
 

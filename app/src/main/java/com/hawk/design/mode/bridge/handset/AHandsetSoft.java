@@ -1,4 +1,4 @@
-package com.hawk.design.mode.bridge;
+package com.hawk.design.mode.bridge.handset;
 
 /**
  * Created by Jerry on 2019/1/5.

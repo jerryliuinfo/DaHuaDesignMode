@@ -5,13 +5,14 @@ package com.hawk.design.mode.command;
  */
 
 public abstract class Command {
-    private IBarbecure barbecue;
+    //烤肉串命令一来烤肉串者
+    private IOperation barbecue;
 
-    public Command(IBarbecure barbecue) {
+    public Command(IOperation barbecue) {
         this.barbecue = barbecue;
     }
 
-    public IBarbecure getBarbecue() {
+    public IOperation getBarbecue() {
         return barbecue;
     }
 

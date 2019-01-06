@@ -4,15 +4,15 @@ package com.hawk.design.mode.command;
  * Created by jerryliu on 2017/8/29.
  */
 
-public class BeijingBarbecure implements IBarbecure {
+public class ReceiverXinjiangBarbecure implements IOperation {
     @Override
     public void bakeMutton() {
-        System.out.println("北京烤羊肉");
+        System.out.println("新疆烤羊肉");
     }
 
     @Override
     public void bakeChickenWing() {
-        System.out.println("北京烤鸡翅");
+        System.out.println("新疆烤鸡翅");
 
     }
 }

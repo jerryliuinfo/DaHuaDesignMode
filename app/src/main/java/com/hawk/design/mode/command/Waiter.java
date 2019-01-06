@@ -10,9 +10,9 @@ import java.util.List;
 public class Waiter {
     private List<Command> commandList = new ArrayList<>();
 
-    public void setOrder(Command command){
+    public void addOrder(Command command){
         if (!commandList.contains(command)){
-            if (command instanceof BakeChickeWingCommand){
+            if (command instanceof CommandChickeWing){
                 System.out.println("服务员:鸡翅没有了，请点其他的烤肉");
             }else {
                 commandList.add(command);

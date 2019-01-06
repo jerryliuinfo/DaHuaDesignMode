@@ -1,10 +1,10 @@
 package com.hawk.design.mode;
 
-import com.hawk.design.mode.command.BakeChickeWingCommand;
-import com.hawk.design.mode.command.BakeMuttonCommand;
-import com.hawk.design.mode.command.BeijingBarbecure;
+import com.hawk.design.mode.command.CommandChickeWing;
+import com.hawk.design.mode.command.CommandBakeMutton;
+import com.hawk.design.mode.command.ReceiverBeijingBarbecure;
 import com.hawk.design.mode.command.Waiter;
-import com.hawk.design.mode.command.XinjiangBarbecure;
+import com.hawk.design.mode.command.ReceiverXinjiangBarbecure;
 
 import org.junit.Test;
 
@@ -17,12 +17,12 @@ public class CommandTest {
     @Test
     public void testCommand(){
 
-        BakeMuttonCommand bakeMuttonCommand1 = new BakeMuttonCommand(new XinjiangBarbecure());
-        BakeChickeWingCommand bakeChickeWingCommand = new BakeChickeWingCommand(new BeijingBarbecure());
+        CommandBakeMutton bakeMuttonCommand1 = new CommandBakeMutton(new ReceiverXinjiangBarbecure());
+        CommandChickeWing bakeChickeWingCommand = new CommandChickeWing(new ReceiverBeijingBarbecure());
 
         Waiter waiter = new Waiter();
-        waiter.setOrder(bakeMuttonCommand1);
-        waiter.setOrder(bakeChickeWingCommand);
+        waiter.addOrder(bakeMuttonCommand1);
+        waiter.addOrder(bakeChickeWingCommand);
 
         waiter.notifyReceiver();
     }

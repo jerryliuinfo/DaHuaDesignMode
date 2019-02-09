@@ -22,7 +22,7 @@ public class TellerProxy implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("proxy==" + proxy.getClass());
-        System.out.println("method==" + method);
+        System.out.println("invoke proxy= " +proxy +", method name =" + method.getName());
 
         if (args != null){
             int length = args.length;
